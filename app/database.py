@@ -1,7 +1,7 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
-from config import setting
+from .config import setting
 
 db_username = setting.database_username
 db_passwd = setting.database_password

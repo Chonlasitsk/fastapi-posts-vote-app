@@ -1,6 +1,5 @@
-import oauth2
-from database import get_db
-import models, schemas
+from ..database import get_db
+from .. import models, schemas, oauth2
 from fastapi import APIRouter, status, Depends, HTTPException
 from sqlalchemy.orm import Session
 

@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 import uvicorn
-import models
-from database import engine
-from router import post, user, auth, votes
+from . import models
+from .database import engine
+from .router import post, user, auth, votes
 from fastapi.middleware.cors import CORSMiddleware
 
 
@@ -35,5 +35,5 @@ app.add_middleware(
 async def root():
     return {"message": "Hello World"}
 
-if __name__ == "__main__":
-    uvicorn.run('main:app', host="127.0.0.1", port=8001, reload=True)
+# if __name__ == "__main__":
+#     uvicorn.run('main:app', host="0.0.0.0", port=8001, reload=True)

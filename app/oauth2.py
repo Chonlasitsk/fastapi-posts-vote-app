@@ -1,11 +1,11 @@
 from jose import JWTError, jwt
 from datetime import datetime, timedelta
-import schemas, models
-from database import get_db
+from . import schemas, models
+from .database import get_db
 from fastapi.security import OAuth2PasswordBearer
 from fastapi import Depends, HTTPException
 from sqlalchemy.orm import Session
-from config import setting
+from .config import setting
 SECRET_KEY = setting.secret_key
 ALGORITHM = setting.algorithm
 ACCESS_TOKEN_EXPIRE_MINUTES = setting.access_token_expire_min

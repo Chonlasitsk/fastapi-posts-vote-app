@@ -1,10 +1,10 @@
-import oauth2
-from database import get_db
-import models, schemas
+from ..database import get_db
+from .. import models, schemas, oauth2
 from fastapi import APIRouter, status, Depends, HTTPException
 from sqlalchemy.orm import Session
 from typing  import Optional
 from sqlalchemy import func
+
 router = APIRouter(tags=['Posts'])
 @router.get('/posts', response_model = list[tuple[schemas.Post, int]])
 def get_posts(db: Session = Depends(get_db), 

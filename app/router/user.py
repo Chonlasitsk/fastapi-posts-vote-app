@@ -1,9 +1,9 @@
-from database import get_db
-import models, schemas, utils
+from ..database import get_db
+from .. import models, schemas, utils, oauth2
 from fastapi import APIRouter, status, Depends, HTTPException
 from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
-import oauth2
+
 router = APIRouter(prefix='/users', tags=['Users'])
 
 @router.post('/register', status_code=status.HTTP_201_CREATED, response_model=schemas.UserOut)
