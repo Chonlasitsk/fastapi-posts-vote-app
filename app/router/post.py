@@ -2,11 +2,11 @@ from ..database import get_db
 from .. import models, schemas, oauth2
 from fastapi import APIRouter, status, Depends, HTTPException
 from sqlalchemy.orm import Session
-from typing  import Optional
+from typing  import Optional, List, Tuple
 from sqlalchemy import func
 
 router = APIRouter(tags=['Posts'])
-@router.get('/posts', response_model = list[tuple[schemas.Post, int]])
+@router.get('/posts', response_model = List[Tuple[schemas.Post, int]])
 def get_posts(db: Session = Depends(get_db), 
               get_current_user: int = Depends(oauth2.get_current_user),
               limit: int = 10,

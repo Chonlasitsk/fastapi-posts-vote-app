@@ -1,4 +1,5 @@
 from ..database import get_db
+from typing import List
 from .. import models, schemas, utils, oauth2
 from fastapi import APIRouter, status, Depends, HTTPException
 from sqlalchemy.exc import IntegrityError
@@ -28,7 +29,7 @@ def get_user(id: int,
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"user with id: {id} was not found")
     return user
 
-@router.get('/', status_code=status.HTTP_200_OK, response_model=list[schemas.UserOut])
+@router.get('/', status_code=status.HTTP_200_OK, response_model=List[schemas.UserOut])
 def get_all_user(db: Session = Depends(get_db),
                  get_current_user: int = Depends(oauth2.get_current_user)):
     users = db.query(models.User).all()
