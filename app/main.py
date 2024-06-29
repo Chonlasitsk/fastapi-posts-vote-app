@@ -8,7 +8,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 models.Base.metadata.create_all(bind=engine)
-# while True:    
+# while True:
 #     try:
 #         conn = psycopg2.connect(host='localhost', database='fastapi', user='postgres', password='1234', port=5433, cursor_factory=RealDictCursor)
 #         cursor = conn.cursor()
@@ -33,7 +33,6 @@ app.add_middleware(
 )
 @app.get("/")
 async def root():
-    return {"message": "Hello World, and Welcome to Social Media app !!"}
-
+    return {"message": "Hello World, !!"}
 # if __name__ == "__main__":
 #     uvicorn.run('main:app', host="0.0.0.0", port=8001, reload=True)
