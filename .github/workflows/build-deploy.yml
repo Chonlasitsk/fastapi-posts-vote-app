@@ -41,7 +41,7 @@ jobs:
             script: |
               cd app/src
               git pull
-              systemctl restart gunicorn
+              sudo -S systemctl restart  gunicorn
         # login to our ubuntu
         # cd /app/src
         # git pull
