@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-import uvicorn
 from . import models
 from .database import engine
 from .router import post, user, auth, votes
